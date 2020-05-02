@@ -2,5 +2,6 @@
 
 | Challenge |  |
 | ------ | ------ |
-| Khanslist |  |
-| Khanslist2 | |
+| Khanslist | [README](Khanslist) |
+| Khanslist2 |[README](Khanslist2) |
+| SecureMessage | [README](SecureMessage) |

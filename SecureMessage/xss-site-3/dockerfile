@@ -1,0 +1,28 @@
+FROM python:3.7
+
+# install google chrome
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+RUN apt-get -y update
+RUN apt-get install -y google-chrome-stable psmisc apache2 mariadb-server php php-mysql php-mbstring
+
+# install chromedriver
+RUN apt-get install -yqq unzip vim 
+RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+
+# set display port to avoid crash
+ENV DISPLAY=:99
+
+# upgrade pip
+RUN pip3 install --upgrade pip && pip3 install selenium && rm /etc/apache2/sites-available/000-default.conf
+
+COPY ./entrypoint.sh /
+COPY ./bot.py /
+COPY ./bot.sh /
+COPY ./sql.sql /tmp/
+COPY ./000-default.conf /etc/apache2/sites-available/
+COPY ./secure_message.tar.gz /tmp/
+RUN tar xvf /tmp/secure_message.tar.gz -C /var/www/html/
+ENTRYPOINT ["/entrypoint.sh"]
+
