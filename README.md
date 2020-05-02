@@ -2,4 +2,4 @@
 
 | Challenge |  |
 | ------ | ------ |
-| Khanslist | [Khanslist/README.md](README.md) |
+| Khanslist |  |
