@@ -1,0 +1,10 @@
+FROM ubuntu:16.04
+
+RUN apt-get update && apt-get -y dist-upgrade && \
+    apt-get install -y lib32z1 xinetd netcat vim wamerican
+RUN useradd -m ctf
+COPY ./ctf_binary /home/ctf/ctf_binary
+COPY ./flag.txt /home/ctf/
+COPY ./xinetd.conf /etc/xinetd.d/ctf
+COPY ./entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
