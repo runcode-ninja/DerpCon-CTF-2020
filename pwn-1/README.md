@@ -23,6 +23,7 @@ derp{HOW_IS_BABBY_FORMED_babypwn}
 
 ### Files:
 [docker](pwn1)
+
 ### Solution:
 ```
 format string vuln. echo '%34$s' | nc 10.0.16.31 9999 ## gets secret word. Of note, the word can be bruteforced as well, but it'll take a hot minute as it uses american-english dictionary and sits in the T's. The word is "supposed" to be random, but it is not tho it will differ from their local run if the dictionary is different than the server. Can add the server side dictionary later if this causes too much troubles.

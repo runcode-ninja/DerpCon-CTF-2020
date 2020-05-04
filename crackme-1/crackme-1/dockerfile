@@ -1,0 +1,10 @@
+FROM debian:latest
+
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get -y install netcat python procps xinetd
+RUN useradd -m ctf
+COPY ./ctf_binary /home/ctf/ctf_binary
+COPY ./flag.txt /home/ctf/flag.txt
+COPY ./xinetd.conf /etc/xinetd.d/ctf
+COPY ./entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]

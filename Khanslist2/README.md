@@ -23,6 +23,7 @@ derp{XSS_2_B_ADMIN_d3RpM13573R}
 
 ### Files:
 [docker](xss-site-2)
+
 ### Solution:
 ```
 Report to admin feature, regular admin does not have flag access. xss admin to edit your account to make you an admin and set safe_ip val appropriately:
