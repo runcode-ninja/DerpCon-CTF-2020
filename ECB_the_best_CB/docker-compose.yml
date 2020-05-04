@@ -1,0 +1,9 @@
+version: "3.7"    
+services:
+  ecb:
+    build: .
+    environment:
+      CHALL_FLAG: derp{3cb_may_n0t_b3_7he_b3st_4ft4r_ALL}
+      APP_PORT: 8000
+    ports:
+      - "8000:8000"
